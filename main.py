@@ -72,7 +72,7 @@ gravity = fct.compute_g(planet[:,0], planet[:,1])
 """
 Water fraction values to be used to compute pressures in the model, enter values in percent. The computation part then uses those to get T_surf and T_eff.
 """
-frac_water = np.array([0.01, 0.1, 1, 5, 10])
+frac_water = np.array([0.01, 0.1, 1, 3, 5])
 mass_atmosphere, pressure_water, temperature_surf, temperature_eff, Z_atm = {}, {}, {}, {}, {}
 for val in frac_water:
     mass_atmosphere[val] = fct.compute_Matmo(planet[:,0], val/100)

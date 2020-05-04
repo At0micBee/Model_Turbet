@@ -57,13 +57,13 @@ lim_pres_max = 27e3             # Maximum pressure validity     (bar)
 lim_S_min = 1                   # Minimum insolation validity     (earth unit)
 lim_S_max = 30                  # Maximum insolation validity     (earth unit)
 
-earth_m = 5.872e24              # Earth mass    (kg)
+earth_m = 5.97216787e24              # Earth mass    (kg)    # CHANGE HERE WAS 5.8
 earth_r = 6.3781e6              # Earth radius  (m)
 earth_g = 9.81                  # Earth gravity (m.s-2)
 
 conv_bar = 1e-5                 # Bar conversion (1 Pa = 1e-5 bar)
-Gcst = 6.67e-11                 # Gravitational constant (m3.kg-1.s-2)
-Rcst = 8.314                    # Thermodynamical constant (J.K-1.mol-1)
+Gcst = 6.6743e-11                 # Gravitational constant (m3.kg-1.s-2)
+Rcst = 8.31446262                    # Thermodynamical constant (J.K-1.mol-1)
 wcp = 22064000                  # Water critcal pressure (Pa)
 wct = 647.1                     # Water critical temperature (K)
 wmm = 1.8e-2                    # Water molar mass (kg.mol-1)
@@ -176,11 +176,11 @@ def Z_atmo(M_i, R_i, x_h2o, g_i, T):
     g = earth_g*g_i
     # Equation is large, so it's computed in multiple terms
     l1 = x_h2o/(1 - x_h2o)
-    l2 = g*g/(4*np.pi*Gcst*P_transit*conv_bar)
+    l2 = g*g/(4*np.pi*Gcst*P_transit)
     l3 = Rcst*T/(wmm*g)
-    b1 = np.log10(l1*l2)*l3
-    b2 = (R/b1) - 1
-    return R/b2/earth_r
+    b1 = 1/(np.log10(l1*l2)*l3)
+    b2 = 1/(b1 - (1/R))
+    return b2/earth_r
 
 ##########################################################################################
 # Other functions
