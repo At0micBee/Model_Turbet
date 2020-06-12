@@ -89,10 +89,10 @@ for val in frac_water:
 # Saving computed data
                     # Single file with combination of all data computed #
 all = open(path_outputs + "results.dat", "w+")
-all.write("wf\t\t\tM\t\t\tR\t\t\tg\t\t\tP\t\t\t\t\t\tT_surf\t\tT_eff\t\tZ_atmo\n")
+all.write("wf\t\t\tM\t\t\tR\t\t\tg\t\t\tP\t\t\t\t\t\t\t\t\tT_surf\t\t\t\tT_eff\t\t\tZ_atmo\n")
 for frac in frac_water:
     for i in range(len(planet[:,0])):
-        all.write("{0:.6f}\t{1:.6f}\t{2:.6f}\t{3:.6f}\t{4:.20f}\t{5:.6f}\t{6:.6f}\t{7:.6f}\n".format(frac, planet[:,0][i], planet[:,1][i], gravity[i], pressure_water[frac][i], temperature_surf[val][i], temperature_eff[val][i], Z_atm[val][i]))
+        all.write("{0:8.6f}\t{1:8.6f}\t{2:8.6f}\t{3:8.6f}\t{4:28.20f}\t{5:16.6f}\t{6:12.6f}\t{7:12.6f}\n".format(frac, planet[:,0][i], planet[:,1][i], gravity[i], pressure_water[frac][i], temperature_surf[val][i], temperature_eff[val][i], Z_atm[val][i]))
 all.close()
 
 ##########################################################################################
@@ -100,6 +100,6 @@ all.close()
                     # Calling the graphing functions to represnet the computations #
 graph.atmospheres(planet[:,0], planet[:,1], Z_atm)
 graph.gravity_planet(planet[:,0], gravity)
-graph.surface_pressure(planet[:,0], pressure_water)
+graph.surface_pressure(planet[:,0], gravity, pressure_water)
 graph.temp_surf(planet[:,0], gravity, temperature_surf)
 graph.temp_eff(planet[:,0], gravity, temperature_eff)
