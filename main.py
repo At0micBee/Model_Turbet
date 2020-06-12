@@ -97,7 +97,7 @@ all.close()
 
 ##########################################################################################
 # User inputs
-                    # Calling the graphing functions to represnet the computations #
+                    # Calling the graphing functions #
 graph.atmospheres(planet[:,0], planet[:,1], Z_atm)
 graph.gravity_planet(planet[:,0], gravity)
 graph.surface_pressure(planet[:,0], gravity, pressure_water)
