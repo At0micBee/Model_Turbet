@@ -52,10 +52,14 @@ ec10 = -1.034e-2
 
                     # General constants for conversions #
 
-lim_pres_min = 2.7              # Minimum pressure validity     (bar)
-lim_pres_max = 27e3             # Maximum pressure validity     (bar)
-lim_S_min = 1                   # Minimum insolation validity     (earth unit)
-lim_S_max = 30                  # Maximum insolation validity     (earth unit)
+"""
+The validity range is defined by the T_eff equation
+The ranges are described as leading to values with <10% error
+"""
+lim_pres = [2.7, 27e3]          # Pressure validity (bar)
+lim_S = [1, 30]                 # Insolation validity (Earth unit)
+lim_T = [300, 4300]             # Temperature validity (K)
+lim_g = [0.2, 6]                # Gravity validity (Earth unit)
 
 earth_m = 5.97216787e24              # Earth mass    (kg)    # CHANGE HERE WAS 5.8
 earth_r = 6.3781e6              # Earth radius  (m)

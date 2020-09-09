@@ -123,6 +123,9 @@ def surface_pressure(M, g, P):
     pl.xscale("log")
     pl.yscale("log")
 
+    # Plotting ranges
+    pl.fill_between(fct.lim_g, fct.lim_pres[0]/fct.conv_bar, fct.lim_pres[1]/fct.conv_bar, color="grey", alpha=0.5)
+
     print("    <i> Plotting relations...")
     for x in P:
         pl.plot(g, P[x], label='$X_w$={0}%'.format(x))
@@ -191,6 +194,9 @@ def temp_eff(M, g, T):
         T[i] = np.delete(T[i], Md)
 
     pl.figure()
+
+    # Plotting ranges
+    pl.fill_between(fct.lim_g, fct.lim_T[0], fct.lim_T[1], color="grey", alpha=0.5)
 
     print("    <i> Plotting relations...")
     for x in T:
