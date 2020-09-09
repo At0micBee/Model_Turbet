@@ -14,10 +14,10 @@ import numpy as np
 # Model constants
                     # Values for surface temperature (eq. 1) #
 k1 = 2.688
-k2 = 1.099
-k3 = 7.664e-1
-k4 = 1.019
-k5 = 4.683e-1
+k2 = 1.019
+k3 = 1.099
+k4 = 4.683e-1
+k5 = 7.664e-1
 k6 = 4.224e-1
 
 c1 = 3.401
@@ -32,11 +32,11 @@ c9 = -7.627e-3
 c10 = 8.348e-3
 
                     # Values for eff temperature (eq. C.2) #
-ek1 = 3.550
-ek2 = 1.099
-ek3 = 7.664e-1
-ek4 = 1.310
-ek5 = 4.683e-1
+ek1 = -3.550
+ek2 = 1.310
+ek3 = 1.099
+ek4 = 4.683e-1
+ek5 = 7.664e-1
 ek6 = 4.224e-1
 
 ec1 = 2.846
@@ -97,11 +97,13 @@ T_eff - temperature of the isothermal atmosphere (K)
 def compute_g(M_i, R_i):
     M = earth_m*M_i
     R = earth_r*R_i
+    # Returns the gravity as Earth gravity unit
     return Gcst*M/R/R/earth_g
 
                     # Compute the mass of the atmosphere #
 def compute_Matmo(M_core_i, x_h2o):
     M_core = earth_m*M_core_i
+    # Returns the mass as Earth mass unit
     return ((M_core*x_h2o)/(1-x_h2o))/earth_m
 
                     # Compute the pressure at the base of the atmosphere #
@@ -132,6 +134,7 @@ def Z(S):
 
                     # Computes the surface temperature (eq. 1) #
 def T_surf(P_i, g_i, S):
+    # Units: Pa, ge, and Se
     P = conv_bar*P_i
     g = earth_g*g_i
     x = X(P)
@@ -150,7 +153,7 @@ def eX(x_h2o):
 
                     # Compute the Y function of eff temperature #
 def eY(g):
-    return (g - ek3)/ek4
+    return (np.log10(g) - ek3)/ek4
 
                     # Compute the Z function of eff temperature #
 def eZ(S):
