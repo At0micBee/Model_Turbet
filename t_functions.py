@@ -68,7 +68,7 @@ wcp = 22064000                  # Water critcal pressure (Pa)
 wct = 647.1                     # Water critical temperature (K)
 wmm = 1.8e-2                    # Water molar mass (kg.mol-1)
 
-P_transit = 2000        # Atmosphere cutoff (Pa)
+P_transit = 0.1        # Atmosphere cutoff (Pa)
 
 ##########################################################################################
 """

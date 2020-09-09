@@ -50,7 +50,7 @@ def atmospheres(M, R, Z):
     pl.plot(M, R, color='black', label='Core planet')
 
     pl.ylim([0.6, 1.3])     # Turbet limit on fig 2
-    pl.xlim([0.15,2])
+    pl.xlim([0.0,2])
 
     pl.xlabel("Mass ($M_e$)")
     pl.ylabel("Radius ($R_e$)")
@@ -69,7 +69,7 @@ def atmospheres(M, R, Z):
 
     #pl.ylim([0.0,3.0])
     pl.ylim([0.6, 1.3])     # Turbet limit on fig 2
-    pl.xlim([0.15,2])
+    pl.xlim([0.0,2])
 
     print("    <i> Saving to outputs folder...")
     pl.savefig(path_outputs + 'atmospheres.pdf')

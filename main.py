@@ -83,7 +83,7 @@ for val in frac_water:
     """
     temperature_surf[val] = fct.T_surf(pressure_water[val], gravity, S)
     temperature_eff[val] = fct.T_eff(val/100, gravity, S)
-    Z_atm[val] = fct.Z_atmo(planet[:,0], planet[:,1], val/100, gravity, temperature_surf[val])
+    Z_atm[val] = fct.Z_atmo(planet[:,0], planet[:,1], val/100, gravity, temperature_eff[val])
 
 ##########################################################################################
 # Saving computed data
