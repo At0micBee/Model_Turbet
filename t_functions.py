@@ -181,7 +181,7 @@ def Z_atmo(M_i, R_i, x_h2o, g_i, T):
     l1 = x_h2o/(1 - x_h2o)
     l2 = g*g/(4*np.pi*Gcst*P_transit)
     l3 = Rcst*T/(wmm*g)
-    b1 = 1/(np.log10(l1*l2)*l3)
+    b1 = 1/(np.log(l1*l2)*l3)
     b2 = 1/(b1 - (1/R))
     return b2/earth_r
 
